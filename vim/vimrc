@@ -1,0 +1,21 @@
+set nocompatible
+setlocal nomodeline
+set number
+syntax on
+
+set backspace=indent,eol,start
+
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set expandtab
+set colorcolumn=80
+
+autocmd FileType make set noexpandtab
+
+call plug#begin()
+Plug 'arcticicestudio/nord-vim'
+Plug 'editorconfig/editorconfig-vim'
+call plug#end()
+
+colorscheme nord
