@@ -2,14 +2,15 @@ set nocompatible
 setlocal nomodeline
 set number
 syntax on
+filetype on
 
 set backspace=indent,eol,start
-
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 set expandtab
 set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 autocmd FileType make set noexpandtab
 
@@ -18,4 +19,5 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
-colorscheme nord
+" makefile will uncomment this colorscheme
+"colorscheme nord

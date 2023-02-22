@@ -6,14 +6,18 @@ CONFIG = $(HOME)/.config
 # TODO: better logging...
 
 help:
-	@echo 'I know how to do the following targets\n' \
-		'  all   all of the items below\n' \
-		'  vim   vimrc and plugins\n'
+	@printf '%s\n' 'I know how to make the following targets' \
+		'  all     all of the items below' \
+		'  vim     vimrc and plugins' \
+		'  clean   try to cleanup configs'
+
+all: vim
 
 vim: vim-plug vimrc
 	@echo -n "[INFO] installing vim plugins ... "
-	@vim -c 'PlugInstall' -c 'sleep 2' -c 'qa!'
+	@vim -c 'PlugInstall' -c 'sleep 2' -c 'qa!' 1>/dev/null 2>/dev/null
 	@echo 'passed'
+	@sed -i 's/"colorscheme/colorscheme/' $(PREFIX)/.vimrc
 
 vimrc:
 	@echo -n "[INFO] installing vimrc ... "
@@ -28,4 +32,10 @@ vim-plug:
 		|| { echo failed!; echo "[ERROR] unable to install vim-plug"; exit 1; }
 	@echo "passed"
 
-.PHONY: help vim vimrc vim-plug
+clean-vim:
+	rm -rf $(PREFIX)/.vimrc $(PREFIX)/.vim
+
+clean: clean-vim
+
+
+.PHONY: help vim vimrc vim-plug clean clean-vim
