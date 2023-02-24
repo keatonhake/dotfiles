@@ -7,7 +7,7 @@ CONFIG = $(HOME)/.config
 
 help:
 	@printf '%s\n' 'I know how to make the following targets' \
-		'  all     all of the items below' \
+		'  all     all of the non-clean items below' \
 		'  vim     vimrc and plugins' \
 		'  clean   try to cleanup configs'
 
