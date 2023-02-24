@@ -15,7 +15,7 @@ all: vim
 
 vim: vim-plug vimrc
 	@echo -n "[INFO] installing vim plugins ... "
-	@vim -c 'PlugInstall' -c 'sleep 2' -c 'qa!' 1>/dev/null 2>/dev/null
+	@vim -c 'PlugInstall' -c 'sleep 2' -c 'qa!' >/dev/null 2>&1
 	@echo 'passed'
 	@sed -i 's/"colorscheme/colorscheme/' $(PREFIX)/.vimrc
 
